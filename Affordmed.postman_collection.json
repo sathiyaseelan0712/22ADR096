@@ -1,0 +1,125 @@
+{
+	"info": {
+		"_postman_id": "f04d4a92-72a8-4898-9427-65c5bbd24cd7",
+		"name": "Affordmed",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "34909015",
+		"_collection_link": "https://raguspostman.postman.co/workspace/Team-Workspace~505ba09a-1b9d-4112-83ea-bf04a50632c4/collection/34909015-f04d4a92-72a8-4898-9427-65c5bbd24cd7?action=share&source=collection_link&creator=34909015"
+	},
+	"item": [
+		{
+			"name": "Problem-1",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"var template = `",
+							"<style type=\"text/css\">",
+							"    .tftable {font-size:14px;color:#333333;width:100%;border-width: 1px;border-color: #87ceeb;border-collapse: collapse;}",
+							"    .tftable th {font-size:18px;background-color:#87ceeb;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;text-align:left;}",
+							"    .tftable tr {background-color:#ffffff;}",
+							"    .tftable td {font-size:14px;border-width: 1px;padding: 8px;border-style: solid;border-color: #87ceeb;}",
+							"    .tftable tr:hover {background-color:#e0ffff;}",
+							"</style>",
+							"",
+							"<table class=\"tftable\" border=\"1\">",
+							"    <tr>",
+							"        <th>Window Previous State</th>",
+							"        <th>Window Current State</th>",
+							"        <th>Numbers</th>",
+							"        <th>Average</th>",
+							"    </tr>",
+							"    <tr>",
+							"        <td>{{response.windowPrevState}}</td>",
+							"        <td>{{response.windowCurrState}}</td>",
+							"        <td>{{response.numbers}}</td>",
+							"        <td>{{response.avg}}</td>",
+							"    </tr>",
+							"</table>",
+							"`;",
+							"",
+							"function constructVisualizerPayload() {",
+							"    return {response: pm.response.json()}",
+							"}",
+							"",
+							"pm.visualizer.set(template, constructVisualizerPayload());"
+						],
+						"type": "text/javascript",
+						"packages": {}
+					}
+				}
+			],
+			"request": {
+				"auth": {
+					"type": "bearer",
+					"bearer": {
+						"token": "{{authorization}}"
+					}
+				},
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "{{baseUrl}}api/number?numberid=i",
+					"host": [
+						"{{baseUrl}}api"
+					],
+					"path": [
+						"number"
+					],
+					"query": [
+						{
+							"key": "numberid",
+							"value": "i",
+							"description": "Sample Invalid Params"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"email\": \"sathiyaseelans.22aid@kongu.edu\",\n    \"name\": \"Sathiyaseelan S\",\n    \"mobileNo\":\"9042252093\",\n    \"githubUsername\": \"sathiyaseelan0712\",\n    \"rollNo\": \"22ADR095\",\n    \"collegeName\":\"KONGU ENGINEERING COLLEGE\",\n    \"accessCode\": \"jmpZaF\"\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://20.244.56.144/evaluation-service/register"
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"url": "http://20.244.56.144/evaluation-service/auth"
+			},
+			"response": []
+		},
+		{
+			"name": "Check API",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
